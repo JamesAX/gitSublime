@@ -45,10 +45,10 @@ function moveball() {
   ctx.clearRect(boxx, boxy, boxwidth, boxheight);
   moveandcheck();
   ctx.drawImage(img, ballx - ballrad, bally - ballrad, 2 * ballrad, 2 * ballrad);
-  ctx.fillRect(boxx, boxy, ballrad, boxheight);
-  ctx.fillRect(boxx + boxwidth + ballrad, boxy, ballrad, boxheight);
-  ctx.fillRect(boxx, boxy, boxheight, ballrad);
-  ctx.fillRect(boxx, boxy + boxheight - ballrad, boxwidth, ballrad);
+  ctx.fillRect(boxx - ballrad, boxy, ballrad, boxheight);
+  ctx.fillRect(boxx + boxwidth, boxy, ballrad, boxheight);
+  ctx.fillRect(boxx, boxy - ballrad, boxwidth, ballrad);
+  ctx.fillRect(boxx, boxy + boxheight, boxwidth, ballrad);
 }
 
 function moveandcheck() {
