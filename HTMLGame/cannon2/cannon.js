@@ -1,13 +1,13 @@
 var cwidth     = 600;
 var cheight    = 400;
-var gravity    = 2;
+var gravity    = 1;
 var iballx     = 20;
 var ibally     = 300;
 var everything = [];
 var ctx;
 var tid;
 var horvelocity;
-var verticalvel1;
+var verticalvel1 = 25;
 var verticalvel2;
 
 function Ball(sx, sy, rad, stylestring) {
@@ -20,15 +20,15 @@ function Ball(sx, sy, rad, stylestring) {
 }
 
 function drawball() {
-  ctx.fillStyle = this.fiillstyle;
+  ctx.fillStyle = this.fillstyle;
   ctx.beginPath();
   ctx.arc(this.sx, this.sy, this.rad, 0, Math.PI * 2, true);
   ctx.fill();
 }
 
 function moveball(dx, dy) {
-  this.dx += dx;
-  this.dy += dy;
+  this.sx += dx;
+  this.sy -= dy;
 }
 
 var cball = new Ball(iballx, ibally, 10, "rgb(250, 0, 0)");
@@ -60,7 +60,6 @@ function init() {
 }
 
 function fire() {
-  alert ('');
   cball.sx = iballx;
   cball.sy = ibally;
   horvelocity  = Number(document.f.hv.value);
@@ -80,19 +79,23 @@ function drawall() {
 
 function change() {
   var dx = horvelocity;
-  verticalvel2 = verticalvel1 + gravity;
+  // verticalvel2 = verticalvel1 + gravity;
+  // var dy = (verticalvel1 + verticalvel2) * 0.5;
+  verticalvel2 = verticalvel1 - gravity;
   var dy = (verticalvel1 + verticalvel2) * 0.5;
   verticalvel1 = verticalvel2;
   cball.moveit(dx, dy);
   var bx = cball.sx;
   var by = cball.sy;
 
-  if ((bx >= target.sx) && (by >= (target.sx + target.swidth)) && (by >= target.sy) && (by <= (target.sy + target.sheight))) {
+  if ((bx >= target.sx) && (by <= (target.sx + target.swidth)) && (by >= target.sy) && (by <= (target.sy + target.sheight))) {
     clearInterval(tid);
   }
   if (by >= ground.sy) {
     clearInterval(tid);
   }
+  console.log (by >= ground.sy, by, ground.sy, dx, dy);
+
   drawall();
 }
 
