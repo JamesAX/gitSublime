@@ -1,0 +1,17 @@
+<html>
+<head>Cannonball
+  <style>form{width:330px; margin:20px; background-color:brown;padding:20px;}</style>
+  <script src="cannon.js"></script>
+</head>
+<body onload ="init ();">
+  <canvas id="canvas" width="600" height="400">Your browser does not support the HTML5 element canvas.</canvas><br/>
+  <form name="f" id="f" onSubmit="return fire();">
+    Set velocity, angle and fire cannonball. <br/>
+    Velocity out of cannon
+    <input type="number" name="vo" id="vo" value="10" min="-100" max="100"/><br>
+    Angle
+    <input type="number" name="ang" id="ang" value="0" min="0" max="80"/><br/>
+    <input type="submit" value="FIRE">
+  </form>
+</body>
+</html>
