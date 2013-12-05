@@ -7,7 +7,7 @@ var everything = [];
 var ctx;
 var tid;
 var horvelocity;
-var verticalvel1 = 25;
+var verticalvel1;// = 25;
 var verticalvel2;
 
 var cannonx      = 10;
@@ -42,7 +42,7 @@ function drawball() {
 
 function moveball(dx, dy) {
   this.sx += dx;
-  this.sy -= dy;
+  this.sy += dy;
 }
 
 var cball = new Ball(iballx, ibally, 10, "rgb(250, 0, 0)");
@@ -79,7 +79,7 @@ function drawAnImage() {
 }
 
 var target = new Picture(targetx, targety, targetw, targeth, 'hill.jpg');
-var htarget = new Picture(htargetx, targety, targetw, targeth, 'plateau.jpg');
+var htarget = new Picture(htargetx, htargety, htargetw, htargeth, 'plateau.jpg');
 var ground = new Myrectangle(0, 300, 600, 30, 'rgb(10, 250, 0)');
 var cannon = new Myrectangle(cannonx, cannony, cannonlength, cannonht, 'rgb(40, 40, 0)');
 var targetindex = everything.length;

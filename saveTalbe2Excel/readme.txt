@@ -1,0 +1,1 @@
+This tool can work both in IE or other browser
